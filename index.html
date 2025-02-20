@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<style>
+  
+    body {
+    background-image: url("image.jpg");
+    background-size: cover; /* Covers the entire screen */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repetition */
+    margin-top:100px;
+    margin-bottom:250px;
+    margin-left:500px;
+    margin-right:150px;
+}
+    h1{
+    margin-left:100px;
+}
+
+    input{
+    width:70%;
+    padding:12px 20px;
+    margin:8px 0;
+    box-sizing:border-box;
+    border-bottom:4px solid black;
+}
+
+    button{
+    background-color:#3a0515;
+    margin:auto;
+    color:rgb(216, 45, 45);
+    padding:15px 100px;
+    text-align:center;
+    text-decoration:none;
+    display:inline-block;
+    font-size:16px;
+    margin-left:170px;
+    margin-top: 100px;
+}
+
+    #predi{
+    margin-left:60px;
+    color:rgb(225, 13, 13);
+}
+
+    input{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #333;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+    input:hover {
+    color: rgb(132, 9, 17);
+    box-shadow: 0 0 20px rgba(141, 9, 37, 0.8), 0 0 30px rgba(108, 4, 37, 0.6), 0 0 40px rgba(129, 5, 77, 0.4);
+}
+
+    h1 {
+    color: rgb(131, 10, 10);
+    font-size: 40px;
+    text-align: middle;
+    transition: 0.3s ease-in-out;
+}
+
+    h1:hover {
+    animation: shake 0.4s ease-in-out;
+}
+
+    @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+    butto:hover {
+    color: rgb(132, 9, 17);
+    box-shadow: 0 0 20px rgba(141, 9, 37, 0.8), 0 0 30px rgba(108, 4, 37, 0.6), 0 0 40px rgba(129, 5, 77, 0.4);
+}
+
+</style>
+<body>
+    <div class="login">
+        <h1>Zomato Resturant Prediction</h1>
+        <form action = "{{url_for('predict')}}" method="post">
+            <input type="text" name="Resturant ID" placeholder="Resturant ID" required="required"/>
+            <input type="text" name="City" placeholder="City" required="required"/>
+            <input type="text" name="Cuisines" placeholder="Cuisines" required="required"/>
+            <input type="text" name="Has table booking" placeholder="Has table booking" required="required"/>
+            <input type="text" name="Votes" placeholder="Votes" required="required"/>
+            <input type="text" name="Avg Cost of 2 people" placeholder="Avg cost of 2 people" required="required"/>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <h1 id = "pred1">{{prediction_text}}</h1>
+    </div>
+    
+</body>
+</html>
